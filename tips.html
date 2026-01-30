@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pregnancy Health Guide | Month-by-Month Tips</title>
+    <style>
+      /* Base Styles */
+      :root {
+        --primary: #ff99cc;
+        --secondary: #b3e0ff;
+        --accent: #ffcc99;
+        --light: #fff9f9;
+        --dark: #333;
+        --text: #444;
+        --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: var(--light);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Header Styles */
+      header {
+        background: linear-gradient(to right, var(--primary), var(--secondary));
+        padding: 1.5rem 0;
+        box-shadow: var(--shadow);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .logo-icon {
+        font-size: 2rem;
+        color: white;
+      }
+
+      .logo h1 {
+        color: white;
+        font-size: 1.8rem;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: 25px;
+      }
+
+      nav a {
+        color: rgb(3, 3, 3);
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      nav a:hover {
+        text-decoration: underline;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(
+            rgba(255, 153, 204, 0.8),
+            rgba(179, 224, 255, 0.8)
+          ),
+          url("https://images.unsplash.com/photo-1516627145497-ae69578b5b84?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
+        background-size: cover;
+        background-position: center;
+        color: rgb(255, 255, 255);
+        padding: 4rem 0;
+        text-align: center;
+      }
+
+      .hero h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: rgb(255, 255, 255);
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        max-width: 700px;
+        margin: 0 auto 2rem;
+      }
+
+      .btn {
+        display: inline-block;
+        background-color: rgb(186, 246, 195);
+        color: var(--primary);
+        padding: 12px 25px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        box-shadow: var(--shadow);
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Timeline Section */
+      .timeline {
+        padding: 4rem 0;
+        background-color: white;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 3rem;
+        color: var(--dark);
+        position: relative;
+      }
+
+      .section-title:after {
+        content: "";
+        display: block;
+        width: 80px;
+        height: 4px;
+        background: var(--primary);
+        margin: 10px auto;
+        border-radius: 2px;
+      }
+
+      .timeline-container {
+        position: relative;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .timeline-container:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 4px;
+        background: var(--secondary);
+        transform: translateX(-50%);
+      }
+
+      .timeline-item {
+        padding: 20px 40px;
+        position: relative;
+        width: 50%;
+        margin-bottom: 30px;
+      }
+
+      .timeline-item:nth-child(odd) {
+        left: 0;
+      }
+
+      .timeline-item:nth-child(even) {
+        left: 50%;
+      }
+
+      .timeline-item:after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: var(--primary);
+        border: 4px solid white;
+        border-radius: 50%;
+        top: 30px;
+        right: -10px;
+        box-shadow: var(--shadow);
+      }
+
+      .timeline-item:nth-child(even):after {
+        left: -10px;
+      }
+
+      .timeline-content {
+        padding: 20px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+        position: relative;
+      }
+
+      .timeline-content h3 {
+        color: var(--primary);
+        margin-bottom: 10px;
+        font-size: 1.4rem;
+      }
+
+      .timeline-content ul {
+        padding-left: 20px;
+      }
+
+      .timeline-content li {
+        margin-bottom: 8px;
+      }
+
+      /* General Tips Section */
+      .general-tips {
+        padding: 4rem 0;
+        background-color: var(--light);
+      }
+
+      .tips-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+      }
+
+      .tip-card {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: transform 0.3s ease;
+      }
+
+      .tip-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .tip-icon {
+        background: var(--secondary);
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: white;
+      }
+
+      .tip-content {
+        padding: 20px;
+      }
+
+      .tip-content h3 {
+        color: var(--primary);
+        margin-bottom: 10px;
+      }
+
+      /* Resources Section */
+      .resources {
+        padding: 4rem 0;
+        background-color: white;
+      }
+
+      .resources-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+
+      .resource-item {
+        padding: 20px;
+        border-left: 4px solid var(--primary);
+        background: var(--light);
+      }
+
+      .resource-item h3 {
+        color: var(--dark);
+        margin-bottom: 10px;
+      }
+
+      /* Footer */
+      footer {
+        background: var(--dark);
+        color: white;
+        padding: 3rem 0 1.5rem;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-bottom: 2rem;
+      }
+
+      .footer-column h3 {
+        margin-bottom: 20px;
+        color: var(--primary);
+      }
+
+      .footer-column ul {
+        list-style: none;
+      }
+
+      .footer-column li {
+        margin-bottom: 10px;
+      }
+
+      .footer-column a {
+        color: #ddd;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-column a:hover {
+        color: var(--primary);
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .git {
+        text-decoration: none;
+        color: #fb0000;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .timeline-container:before {
+          left: 30px;
+        }
+
+        .timeline-item {
+          width: 100%;
+          padding-left: 70px;
+          padding-right: 20px;
+        }
+
+        .timeline-item:nth-child(even) {
+          left: 0;
+        }
+
+        .timeline-item:after {
+          left: 20px;
+        }
+
+        .timeline-item:nth-child(even):after {
+          left: 20px;
+        }
+
+        .header-content {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        nav ul {
+          gap: 15px;
+        }
+
+        .hero h2 {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Redirect to SPA route /tips -->
+    <script>
+      window.location.href = "/tips";
+    </script>
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <div class="logo-icon">🤰</div>
+            <h1>Pregnancy Health Guide</h1>
+          </div>
+          <nav>
+            <ul>
+              <li><a href="#timeline">Month by Month</a></li>
+              <li><a href="#tips">Health Tips</a></li>
+              <li><a href="#resources">Resources</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h2>Your Journey to Motherhood Starts Here</h2>
+        <p>
+          Get expert health tips and guidance for each stage of pregnancy, from
+          the first month through delivery.
+        </p>
+        <a href="#timeline" class="btn">Explore Month-by-Month Guide</a>
+      </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline" id="timeline">
+      <div class="container">
+        <h2 class="section-title">Pregnancy Health Timeline</h2>
+        <div class="timeline-container">
+          <!-- Month 1 -->
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3>Month 1: Early Changes</h3>
+              <ul>
+                <li>Start taking prenatal vitamins with folic acid</li>
+                <li>Schedule your first prenatal appointment</li>
+                <li>Avoid alcohol, smoking, and harmful substances</li>
+                <li>Eat balanced meals with plenty of fruits and vegetables</li>
+                <li>Stay hydrated with at least 8 glasses of water daily</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Month 2 -->
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3>Month 2: Managing Symptoms</h3>
+              <ul>
+                <li>Eat small, frequent meals to combat nausea</li>
+                <li>Get plenty of rest to fight fatigue</li>
+                <li>Continue taking prenatal vitamins</li>
+                <li>Avoid raw or undercooked foods</li>
+                <li>Begin light exercise like walking</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Month 3 -->
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3>Month 3: First Trimester Wrap-up</h3>
+              <ul>
+                <li>Schedule your first ultrasound</li>
+                <li>Discuss genetic screening with your doctor</li>
+                <li>Wear comfortable, non-restrictive clothing</li>
+                <li>Practice stress-reduction techniques</li>
+                <li>Continue healthy eating habits</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Month 4 -->
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3>Month 4: Second Trimester Begins</h3>
+              <ul>
+                <li>Increase calorie intake by about 300 calories per day</li>
+                <li>Start sleeping on your side</li>
+                <li>Consider prenatal yoga or swimming</li>
+                <li>Begin moisturizing your belly to prevent stretch marks</li>
+                <li>Schedule your anatomy scan</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Month 5 -->
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3>Month 5: Feeling Movement</h3>
+              <ul>
+                <li>Pay attention to fetal movements</li>
+                <li>Wear supportive shoes to accommodate weight changes</li>
+                <li>Continue regular prenatal check-ups</li>
+                <li>Practice good posture to reduce back strain</li>
+                <li>Consider childbirth education classes</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Month 6 -->
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3>Month 6: Growing Bump</h3>
+              <ul>
+                <li>Monitor for signs of gestational diabetes</li>
+                <li>Elevate feet when sitting to reduce swelling</li>
+                <li>Wear compression stockings if needed</li>
+                <li>Practice Kegel exercises</li>
+                <li>Stay active with moderate exercise</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Month 7 -->
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3>Month 7: Third Trimester</h3>
+              <ul>
+                <li>Start preparing for baby's arrival</li>
+                <li>Watch for signs of preterm labor</li>
+                <li>Sleep with extra pillows for support</li>
+                <li>Continue monitoring baby's movements</li>
+                <li>Discuss birth plan with your healthcare provider</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Month 8 -->
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3>Month 8: Final Preparations</h3>
+              <ul>
+                <li>Pack your hospital bag</li>
+                <li>Install car seat</li>
+                <li>Finalize baby's name</li>
+                <li>Practice relaxation techniques for labor</li>
+                <li>Rest as much as possible</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Month 9 -->
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3>Month 9: Ready for Delivery</h3>
+              <ul>
+                <li>Know the signs of labor</li>
+                <li>Have important phone numbers readily available</li>
+                <li>Eat light, easily digestible foods</li>
+                <li>Stay hydrated</li>
+                <li>Trust your body and your healthcare team</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- General Tips Section -->
+    <section class="general-tips" id="tips">
+      <div class="container">
+        <h2 class="section-title">Essential Pregnancy Health Tips</h2>
+        <div class="tips-grid">
+          <div class="tip-card">
+            <div class="tip-icon">🍎</div>
+            <div class="tip-content">
+              <h3>Nutrition</h3>
+              <p>
+                Eat a balanced diet rich in fruits, vegetables, whole grains,
+                lean proteins, and dairy. Stay hydrated and avoid empty
+                calories.
+              </p>
+            </div>
+          </div>
+
+          <div class="tip-card">
+            <div class="tip-icon">🏃‍♀️</div>
+            <div class="tip-content">
+              <h3>Exercise</h3>
+              <p>
+                Engage in moderate exercise for 30 minutes most days. Walking,
+                swimming, and prenatal yoga are excellent options.
+              </p>
+            </div>
+          </div>
+
+          <div class="tip-card">
+            <div class="tip-icon">💤</div>
+            <div class="tip-content">
+              <h3>Rest & Sleep</h3>
+              <p>
+                Get plenty of rest. Sleep on your side in later pregnancy, using
+                pillows for support. Nap when needed.
+              </p>
+            </div>
+          </div>
+
+          <div class="tip-card">
+            <div class="tip-icon">🧘‍♀️</div>
+            <div class="tip-content">
+              <h3>Stress Management</h3>
+              <p>
+                Practice relaxation techniques like deep breathing, meditation,
+                or prenatal massage to reduce stress.
+              </p>
+            </div>
+          </div>
+
+          <div class="tip-card">
+            <div class="tip-icon">👩‍⚕️</div>
+            <div class="tip-content">
+              <h3>Prenatal Care</h3>
+              <p>
+                Attend all scheduled prenatal appointments. Discuss any concerns
+                with your healthcare provider promptly.
+              </p>
+            </div>
+          </div>
+
+          <div class="tip-card">
+            <div class="tip-icon">🚫</div>
+            <div class="tip-content">
+              <h3>Avoid Harmful Substances</h3>
+              <p>
+                Avoid alcohol, tobacco, recreational drugs, and limit caffeine.
+                Check with your doctor before taking any medications.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="resources" id="resources">
+      <div class="container">
+        <h2 class="section-title">Helpful Resources</h2>
+        <div class="resources-grid">
+          <div class="resource-item">
+            <h3>Pregnancy Apps</h3>
+            <p>
+              Track your pregnancy progress, symptoms, and baby's development
+              with recommended apps.
+            </p>
+          </div>
+
+          <div class="resource-item">
+            <h3>Nutrition Guides</h3>
+            <p>
+              Detailed meal plans and recipes tailored for each trimester of
+              pregnancy.
+            </p>
+          </div>
+
+          <div class="resource-item">
+            <h3>Exercise Videos</h3>
+            <p>
+              Safe workout routines designed specifically for pregnant women.
+            </p>
+          </div>
+
+          <div class="resource-item">
+            <h3>Support Groups</h3>
+            <p>
+              Connect with other expectant mothers for advice and encouragement.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3>About Us</h3>
+            <p>
+              Providing evidence-based pregnancy health information to support
+              mothers through every stage of their journey by
+              <b>Team SPSY...</b>
+            </p>
+          </div>
+
+          <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="#timeline">Month-by-Month Guide</a></li>
+              <li><a href="#tips">Health Tips</a></li>
+              <li><a href="#resources">Resources</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Contact</h3>
+            <ul>
+              <li>Email: suniltr28@gmail.com</li>
+              <li>Phone: 9686270145</li>
+              <li>Phone: 8217056187</li>
+              <li>Phone: 8431161338</li>
+              <li>Phone: 7411271392</li>
+              <li>
+                Address: GEC Chaalakere(577522), Chitradurga(D) Ballari Road
+                Sujimalleshwara Temple Near.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="copyright">
+          <p>&copy; 2025-26 Pregnancy Health Guide. All rights reserved.</p>
+          <p>Designed by <b>Team SPSY....</b></p>
+          <div class="git">
+            <a
+              href="https://github.com/Sanjay837"
+              target="_blank"
+              style="color: #21df8d; text-decoration: underline"
+              >GitHub</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Simple smooth scrolling for navigation links
+      document.querySelectorAll("nav a").forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute("href");
+          document.querySelector(targetId).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+
+      // Add some interactivity to the timeline items
+      document.querySelectorAll(".timeline-item").forEach((item) => {
+        item.addEventListener("mouseenter", function () {
+          this.style.transform = "scale(1.02)";
+          this.style.transition = "transform 0.3s ease";
+        });
+
+        item.addEventListener("mouseleave", function () {
+          this.style.transform = "scale(1)";
+        });
+      });
+    </script>
+  </body>
+</html>

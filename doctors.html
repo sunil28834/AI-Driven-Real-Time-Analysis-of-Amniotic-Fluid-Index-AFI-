@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doctors</title>
+    <style>
+      /* General Styles */
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f4;
+        color: #333;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        text-align: center;
+        color: #2c3e50;
+        margin-bottom: 10px;
+      }
+
+      p {
+        text-align: center;
+        font-size: 1.1em;
+        margin-bottom: 30px;
+        color: #7f8c8d;
+      }
+
+      /* Doctor List Styles */
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      li {
+        margin-bottom: 30px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        transition: box-shadow 0.3s ease;
+      }
+
+      li:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .doctor-info {
+        padding: 15px;
+        background: #ecf0f1;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .doctor-name {
+        font-weight: bold;
+        font-size: 1.2em;
+        color: #2c3e50;
+      }
+
+      .toggle-btn {
+        background: #3498db;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      .toggle-btn:hover {
+        background: #2980b9;
+      }
+
+      .map-container {
+        display: none; /* Hidden by default */
+        padding: 15px;
+        background: white;
+      }
+
+      .map-container.active {
+        display: block;
+        animation: fadeIn 0.3s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* Responsive Iframes */
+      .iframe-wrapper {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 75%; /* 4:3 aspect ratio for maps */
+        overflow: hidden;
+      }
+
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      /* Mobile Responsiveness */
+      @media (max-width: 768px) {
+        .container {
+          padding: 10px;
+        }
+
+        .doctor-info {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .toggle-btn {
+          margin-top: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Redirect to SPA route /doctors -->
+    <script>
+      window.location.href = "/doctors";
+    </script>
+    <div class="container">
+      <h1>Doctors Page</h1>
+      <p>The Expert Surgeons for AFI Management in Bangalore</p>
+      <ul>
+        <li>
+          <div class="doctor-info" onclick="toggleMap(this)">
+            <span class="doctor-name"
+              >Dr. Sanjay Kumar - Senior Surgeon at Bangalore General
+              Hospital</span
+            >
+            <button class="toggle-btn">View Map</button>
+          </div>
+          <div class="map-container">
+            <div class="iframe-wrapper">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1984522.7173930774!2d74.66370796189598!3d13.717182005053433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae18c641cb8add%3A0x78a014ad35eb3a04!2sGeneral%20Hospital%20yelahanka!5e0!3m2!1sen!2sin!4v1759915996956!5m2!1sen!2sin"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="doctor-info" onclick="toggleMap(this)">
+            <span class="doctor-name"
+              >Dr. Anitha Reddy - Specialist in AFI Procedures at City Care
+              Clinic</span
+            >
+            <button class="toggle-btn">View Map</button>
+          </div>
+          <div class="map-container">
+            <div class="iframe-wrapper">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3476.003448845106!2d79.12312247531908!3d29.399455175254737!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390a137c73ad1077%3A0x618a131b8736feb1!2sCity%20care%20clinic!5e0!3m2!1sen!2sin!4v1759916088738!5m2!1sen!2sin"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="doctor-info" onclick="toggleMap(this)">
+            <span class="doctor-name"
+              >Dr. Karthik V - Leading AFI Surgeon at Apollo Hospitals,
+              Bangalore</span
+            >
+            <button class="toggle-btn">View Map</button>
+          </div>
+          <div class="map-container">
+            <div class="iframe-wrapper">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62203.88372538037!2d77.49625364863279!3d12.988299800000007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae17ddf4a463e3%3A0x415a988bfb0b66c8!2sApollo%20Hospital%20Seshadripuram!5e0!3m2!1sen!2sin!4v1759916151539!5m2!1sen!2sin"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="doctor-info" onclick="toggleMap(this)">
+            <span class="doctor-name"
+              >Dr. Priya Menon - Experienced AFI Surgeon at Fortis
+              Hospitals</span
+            >
+            <button class="toggle-btn">View Map</button>
+          </div>
+          <div class="map-container">
+            <div class="iframe-wrapper">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62203.88535007171!2d77.4962535854567!3d12.988293311910839!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae166847800b0f%3A0x5670f48c68782ac8!2sFortis%20Hospital%20Bangalore%20%7C%20Cunningham%20Road%20-%20Best%20Hospital%20in%20Bangalore!5e0!3m2!1sen!2sin!4v1759916192724!5m2!1sen!2sin"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="doctor-info" onclick="toggleMap(this)">
+            <span class="doctor-name"
+              >Dr. Arjun Das - Renowned AFI Specialist at Columbia Asia
+              Hospital</span
+            >
+            <button class="toggle-btn">View Map</button>
+          </div>
+          <div class="map-container">
+            <div class="iframe-wrapper">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.8146502439736!2d77.6625805748404!3d12.919631387390977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae137754eecd19%3A0x2937d34df42c20d!2sColumbia%20Asia%20Hospital%2C%20MANTRI%20FLORA%2C%20Amblipura%2C%20PWD%20Quarters%2C%20Ambalipura%2C%20Bellandur%2C%20Bengaluru%2C%20Karnataka%20560102!5e0!3m2!1sen!2sin!4v1759916225733!5m2!1sen!2sin"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="doctor-info" onclick="toggleMap(this)">
+            <span class="doctor-name"
+              >Dr. Sneha Nair - Expert in AFI Surgeries at Manipal
+              Hospital</span
+            >
+            <button class="toggle-btn">View Map</button>
+          </div>
+          <div class="map-container">
+            <div class="iframe-wrapper">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.8126106447535!2d77.66272637484047!3d12.91976238739087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae137091a7b661%3A0xedc3173f33fb2b29!2sManipal%20Hospital%20Sarjapur%20Road!5e0!3m2!1sen!2sin!4v1759916252224!5m2!1sen!2sin"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="doctor-info" onclick="toggleMap(this)">
+            <span class="doctor-name"
+              >Dr. Ramesh Babu - Consultant Surgeon at Narayana Health</span
+            >
+            <button class="toggle-btn">View Map</button>
+          </div>
+          <div class="map-container">
+            <div class="iframe-wrapper">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31111.952565812586!2d77.60540457431642!3d12.908102400000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae149a163c761f%3A0x383a13f2dabe4eca!2sNarayana%20Hospital%2C%20HSR%20Layout!5e0!3m2!1sen!2sin!4v1759916292677!5m2!1sen!2sin"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="doctor-info" onclick="toggleMap(this)">
+            <span class="doctor-name"
+              >Dr. Lakshmi Mohan - Specialist in AFI Treatments at Yashoda
+              Hospitals</span
+            >
+            <button class="toggle-btn">View Map</button>
+          </div>
+          <div class="map-container">
+            <div class="iframe-wrapper">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3649.4388557894986!2d91.26886917511801!3d23.83854527861046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3753f5c62016aa1d%3A0xa889590f365c457e!2sYashoda%20Hospitals%20Medical%20Information%20Centre%20-%20Agartala!5e0!3m2!1sen!2sin!4v1759916386033!5m2!1sen!2sin"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="doctor-info" onclick="toggleMap(this)">
+            <span class="doctor-name"
+              >Dr. Meera Iyer - Renowned AFI Surgeon at Sunshine Hospital</span
+            >
+            <button class="toggle-btn">View Map</button>
+          </div>
+          <div class="map-container">
+            <div class="iframe-wrapper">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.6243431710654!2d77.64596657484297!3d13.059566987263908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae196e332b7a77%3A0xa724b16b6b894e21!2sSUNSHINE%20HOSPITAL!5e0!3m2!1sen!2sin!4v1759916409130!5m2!1sen!2sin"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="doctor-info" onclick="toggleMap(this)">
+            <span class="doctor-name"
+              >Dr. Vikram Patel - Expert in Minimally Invasive AFI Surgeries at
+              Metro Health</span
+            >
+            <button class="toggle-btn">View Map</button>
+          </div>
+          <div class="map-container">
+            <div class="iframe-wrapper">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.660247594286!2d77.58612887484294!3d13.057284987265987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae170b2eee099b%3A0x644e11e8d19d02cc!2sMetro%20Health%20and%20Metro%20Dental!5e0!3m2!1sen!2sin!4v1759916435773!5m2!1sen!2sin"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <script>
+      function toggleMap(element) {
+        const mapContainer = element.nextElementSibling;
+        const button = element.querySelector(".toggle-btn");
+
+        if (mapContainer.classList.contains("active")) {
+          mapContainer.classList.remove("active");
+          button.textContent = "View Map";
+        } else {
+          // Hide all other maps to avoid multiple open
+          document.querySelectorAll(".map-container").forEach((container) => {
+            if (container !== mapContainer) {
+              container.classList.remove("active");
+              container.parentElement.querySelector(".toggle-btn").textContent =
+                "View Map";
+            }
+          });
+
+          mapContainer.classList.add("active");
+          button.textContent = "Hide Map";
+        }
+      }
+
+      // Optional: Add smooth scrolling or other enhancements if needed
+      document.addEventListener("DOMContentLoaded", function () {
+        console.log("Doctors page loaded with interactive maps.");
+      });
+    </script>
+  </body>
+</html>
